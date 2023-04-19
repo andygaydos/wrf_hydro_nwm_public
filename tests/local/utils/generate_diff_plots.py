@@ -214,7 +214,7 @@ def get_datasets(base_path, comp_path, filepattern, useDask=True):
         base_path: The path to the base model output
         comp_path: The path to the comparison model output
         filepattern: The type of file to compare (e.g. LDAS, CHANOBS). Must be a unique
-                     filenme pattern shared by these file types
+                     filename pattern shared by these file types
 
     Returns: A dict {'base': base_dataset, 'comp': comp_dataset}, or None
 
@@ -258,6 +258,8 @@ def get_datasets(base_path, comp_path, filepattern, useDask=True):
             datasets['base'] = ds
         else:
             datasets['comp'] = ds
+
+        logger.debug("Found %s times" % len(ds['time']))
 
     return datasets
 
