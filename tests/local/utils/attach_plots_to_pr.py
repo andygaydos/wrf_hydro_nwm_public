@@ -230,6 +230,7 @@ def create_pull_comment(gh, repo, sha, images, pull, title=None):
             comment += f"![alt text]({path}?raw=true)\n"
 
         logger.debug("Adding comment to pull request")
+        logger.debug(comment)
         pr.create_issue_comment(comment)
 
         logger.debug("Comment added.")
